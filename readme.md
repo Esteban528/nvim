@@ -7,6 +7,6 @@
 
 ## Extras
 ### Fonts (Icons)
-- [Nerd-fonts](https://github.com/ryanoasis/nerd-fonts#font-installation)
+- [Nerd-fonts](https://www.nerdfonts.com/)
 
 ![enter image description here](https://i.imgur.com/Vdj0aMj.png)
