@@ -9,4 +9,8 @@
 ### Fonts (Icons)
 - [Nerd-fonts](https://www.nerdfonts.com/)
 
+### Plugins addons
+- [LSP Config](https://github.com/neovim/nvim-lspconfig)
+- [Coc](https://github.com/neoclide/coc.nvim)
+
 ![enter image description here](https://i.imgur.com/Vdj0aMj.png)
