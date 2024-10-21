@@ -94,7 +94,7 @@ return {
 
 			-- Excludes buffers from the tabline
 			exclude_ft = { "markdown" },
-			exclude_name = { "package.json", "Untitle" },
+			exclude_name = { "package.json", "Untitle", "untitle" },
 
 			-- A buffer to this direction will be focused (if it exists) when closing the current buffer.
 			-- Valid options are 'left' (the default), 'previous', and 'right'
@@ -117,7 +117,7 @@ return {
 				-- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
 				buffer_index = false,
 				buffer_number = false,
-				button = " ",
+				button = "x",
 				-- Enables / disables diagnostic symbols
 				diagnostics = {
 					[vim.diagnostic.severity.ERROR] = { enabled = true, icon = "ﬀ" },

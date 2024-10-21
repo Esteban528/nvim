@@ -103,7 +103,15 @@ map("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
 map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
 
 -- DAP
-map("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()", { noremap = true, silent = true, expr = false })
-map("n", "<leader>dc", ":lua require'dap'.continue()", { noremap = true, silent = true, expr = false })
-map("n", "<leader>ds", ":lua require'dap'.step_into()", { noremap = true, silent = true, expr = false })
-map("n", "<leader>dr", ":lua require'dap'.repl.open()", { noremap = true, silent = true, expr = false })
+map("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<leader>dc", ":lua require'dap'.continue()<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<leader>ds", ":lua require'dap'.step_into()<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", { noremap = true, silent = true, expr = false })
+
+-- Terminal
+
+map("n", "<leader>ft", ":ToggleTerm<CR>", { noremap = true, silent = true, expr = false })
+
+--Window
+map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", silent = true })
+map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", silent = true})

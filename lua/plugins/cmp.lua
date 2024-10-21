@@ -53,8 +53,8 @@ return {
 					documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-k>"] = cmp.mapping.select_prev_item(),
-					["<C-j>"] = cmp.mapping.select_next_item(),
+					["<S-k>"] = cmp.mapping.select_prev_item(),
+					["<S-j>"] = cmp.mapping.select_next_item(),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()

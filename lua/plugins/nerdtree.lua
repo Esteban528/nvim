@@ -1,9 +1,7 @@
 return {
-  -- 'ryanoasis/vim-devicons',
-  'preservim/nerdtree',
-  'Xuyuanp/nerdtree-git-plugin',
+	-- 'ryanoasis/vim-devicons',
+	"preservim/nerdtree",
+	"Xuyuanp/nerdtree-git-plugin",
 
-  config = function()
-
-  end,
+	config = function() end,
 }
