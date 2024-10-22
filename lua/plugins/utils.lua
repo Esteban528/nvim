@@ -43,7 +43,4 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
 	},
-	{
-		"windwp/nvim-autopairs",
-	},
 }
