@@ -3,12 +3,12 @@ return {
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
-				add = { text = "▎" },
-				change = { text = "▎" },
-				delete = { text = "" },
-				topdelete = { text = "" },
-				changedelete = { text = "▎" },
-				untracked = { text = "▎" },
+				add = { text = "|" },
+				change = { text = "|" },
+				delete = { text = "d" },
+				topdelete = { text = "|" },
+				changedelete = { text = "|" },
+				untracked = { text = "|" },
 			},
 			on_attach = function(buffer)
 				local gs = package.loaded.gitsigns
@@ -184,14 +184,11 @@ return {
 
 			sidebar_filetypes = {
 				-- Use the default values: {event = 'BufWinLeave', text = '', align = 'left'}
-				Nerdtree = true,
-				-- Or, specify the text used for the offset:
-				undotree = {
-					text = "undotree",
-					align = "left", -- *optionally* specify an alignment (either 'left', 'center', or 'right')
-				},
+				NvimTree = true,
 				-- Or, specify the event which the sidebar executes when leaving:
-				Outline = { event = "BufWinLeave", text = "symbols-outline", align = "center" },
+				["neo-tree"] = { event = "BufWipeout" },
+				-- Or, specify all three
+				Outline = { event = "BufWinLeave", text = "symbols-outline", align = "right" },
 			},
 
 			-- New buffer letters are assigned in this order. This order is

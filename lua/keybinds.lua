@@ -5,7 +5,7 @@ local function map(mode, key, result, opts)
 
 	-- Check that mode and key are not empty
 	if mode and key then
-		vim.api.nvim_set_keymap(mode, key, result, opts)
+		vim.keymap.set(mode, key, result, opts)
 	else
 		print("Error: mode or key is missing.")
 	end
@@ -35,11 +35,15 @@ map("n", "<C-s>", ":w<CR>", { noremap = true, silent = true, expr = false })
 -- 	{ noremap = true, silent = true, expr = false }
 -- )
 
--- Toggle NERDTree
-map("n", "<leader>n", ":NERDTreeToggle<CR>", { noremap = true, silent = false, expr = false })
+function NeoTreeToggle()
+	vim.cmd("Neotree toggle")
+end
+
+-- Toggle Tree
+map("n", "<leader>n", NeoTreeToggle, { noremap = true, silent = false, expr = false })
 
 -- Close all windows
-map("n", "<leader>qq", ":qa!<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<leader>qq", ":Neotree toggle<CR>:qa!<CR>", { noremap = true, silent = true, expr = false })
 
 -- Close current window
 map("n", "<leader>wd", ":q<CR>", { noremap = true, silent = true, expr = false })
@@ -114,4 +118,4 @@ map("n", "<leader>ft", ":ToggleTerm<CR>", { noremap = true, silent = true, expr 
 
 --Window
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", silent = true })
-map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", silent = true})
+map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", silent = true })

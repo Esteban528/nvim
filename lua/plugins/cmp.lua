@@ -39,7 +39,6 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
-			require("nvim-autopairs").setup()
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 			require("luasnip.loaders.from_vscode").lazy_load()
 			cmp.setup({
@@ -49,8 +48,8 @@ return {
 					end,
 				},
 				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
+					-- completion = cmp.config.window.bordered(),
+					-- documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<S-k>"] = cmp.mapping.select_prev_item(),
@@ -81,9 +80,9 @@ return {
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" }, -- lsp
-					{ name = "buffer", max_item_count = 5 },
-					{ name = "copilot" },
-					{ name = "path", max_item_count = 3 },
+					-- { name = "copilot" },
+					{ name = "buffer", max_item_count = 3 },
+					{ name = "path", max_item_count = 4 },
 					{ name = "luasnip", max_item_count = 3 },
 				}),
 				formatting = {
@@ -98,22 +97,22 @@ return {
 					}),
 				},
 				experimental = {
-					ghost_text = true,
+					ghost_text = false,
 				},
 			})
 		end,
 	},
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		-- Optional dependency
-		dependencies = { "hrsh7th/nvim-cmp" },
-		config = function()
-			require("nvim-autopairs").setup({})
-			-- If you want to automatically add `(` after selecting a function or method
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			local cmp = require("cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-		end,
-	},
+	-- {
+	-- 	"windwp/nvim-autopairs",
+	-- 	event = "InsertEnter",
+	-- 	-- Optional dependency
+	-- 	dependencies = { "hrsh7th/nvim-cmp" },
+	-- 	config = function()
+	-- 		require("nvim-autopairs").setup({})
+	-- 		-- If you want to automatically add `(` after selecting a function or method
+	-- 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+	-- 		local cmp = require("cmp")
+	-- 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+	-- 	end,
+	-- },
 }
