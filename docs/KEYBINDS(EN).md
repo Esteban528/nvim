@@ -1,90 +1,54 @@
 # Keyboard Shortcuts
 
-## 1. General
+## Índice
 
-- [Leader Key](#leader-key)
-- [Guardar Archivo](#guardar-archivo)
-- [Alternar Neotree](#alternar-neotree)
-- [Cerrar Ventanas](#cerrar-ventanas)
-- [Agregar Punto y Coma al Final de Línea](#agregar-punto-y-coma-al-final-de-línea)
-- [Navegación de Ventanas](#navegación-de-ventanas)
-- [Limpiar Resaltado](#limpiar-resaltado)
-- [Redimensionar Ventana](#redimensionar-ventana)
+1. [Keyboard Shortcuts](#keyboard-shortcuts)  
+   1.1. [Leader Key](#leader-key)  
+   1.2. [Save File](#save-file)  
+   1.3. [Toggle Neotree](#toggle-neotree)  
+   1.4. [Close Windows](#close-windows)  
+   1.5. [Window Navigation](#window-navigation)  
+   1.6. [Resize Window](#resize-window)  
+   1.7. [Clear Highlight](#clear-highlight)
 
-## 2. Buffer Mappings (Barbar)
+2. [Buffer Mappings (Barbar)](#buffer-mappings-barbar)  
+   2.1. [Previous and Next Buffers](#previous-and-next-buffers)  
+   2.2. [Reorder Buffers](#reorder-buffers)  
+   2.3. [Buffer Selection and Closing](#buffer-selection-and-closing)
 
-- [Navegar entre Buffers](#navegar-entre-buffers)
-- [Reordenar Buffers](#reordenar-buffers)
-- [Ir a Buffer por Posición](#ir-a-buffer-por-posición)
-- [Fijar/Desfijar Buffer](#fijardesfijar-buffer)
-- [Cerrar Buffers](#cerrar-buffers)
-- [Selección Mágica de Buffers](#selección-mágica-de-buffers)
-- [Ordenar Buffers](#ordenar-buffers)
+3. [Debugging (DAP)](#debugging-dap)  
+   3.1. [Breakpoints and Execution](#breakpoints-and-execution)  
+   3.2. [Open REPL](#open-repl)
 
-## 3. Depuración (DAP)
+4. [Terminal](#terminal)  
+   4.1. [Toggle Terminal](#toggle-terminal)
 
-- [Alternar Punto de Ruptura](#alternar-punto-de-ruptura)
-- [Continuar Ejecución](#continuar-ejecución)
-- [Step Into](#step-into)
-- [Abrir REPL](#abrir-repl)
+5. [Windows](#windows)  
+   5.1. [Horizontal and Vertical Splits](#horizontal-and-vertical-splits)
 
-## 4. Terminal
+6. [nvim-cmp Configuration](#nvim-cmp-configuration)  
+   6.1. [Insert Mode Shortcuts](#insert-mode-shortcuts)  
+   6.2. [Additional Behavior](#additional-behavior)
 
-- [Alternar Terminal](#alternar-terminal)
+7. [DAP Debugging](#dap-debugging)
 
-## 5. Gestión de Ventanas
+8. [LSP](#lsp)  
+   8.1. [LSP Navigation](#lsp-navigation)  
+   8.2. [LSP Editing](#lsp-editing)  
+   8.3. [Declaration and Documentation](#declaration-and-documentation)
 
-- [Dividir Ventana Horizontalmente](#dividir-ventana-horizontalmente)
-- [Dividir Ventana Verticalmente](#dividir-ventana-verticalmente)
+9. [Multi-cursor](#multi-cursor)
 
-## 6. Configuración de nvim-cmp
+10. [Telescope](#telescope)  
+    10.1. [File and Text Search](#file-and-text-search)  
+    10.2. [Testing](#testing)
 
-- [Atajos en Modo Insert](#atajos-en-modo-insert)
-- [Comportamiento Adicional](#comportamiento-adicional)
+11. [Neo-tree](#neo-tree)  
+    11.1. [Navigation and Selection](#navigation-and-selection)
 
-## 7. Depuración DAP (Avanzada)
+12. [Editing Styles](#editing-styles)
 
-- [Iniciar/Continuar Depuración](#iniciarcontinuar-depuración)
-- [Step Into / Step Over / Step Out](#step-into--step-over--step-out)
-
-## 8. LSP
-
-- [Navegación (Go to Definition, References, etc.)](#navegación-go-to-definition-references-etc)
-- [Edición (Renombrar, Code Actions)](#edición-renombrar-code-actions)
-- [Declaración y Documentación](#declaración-y-documentación)
-
-## 9. Multi-cursor
-
-- [Seleccionar con Múltiples Cursores](#seleccionar-con-múltiples-cursores)
-
-## 10. Telescope
-
-- [Buscar Archivos](#buscar-archivos)
-- [Buscar Texto](#buscar-texto)
-- [Listar Buffers Abiertos](#listar-buffers-abiertos)
-- [Ayuda de Neovim](#ayuda-de-neovim)
-
-## 11. Pruebas (Testing)
-
-- [Ejecutar Pruebas](#ejecutar-pruebas)
-- [Navegar entre Pruebas](#navegar-entre-pruebas)
-- [Mostrar Resultados](#mostrar-resultados)
-
-## 12. Neo-tree
-
-- [Navegación y Selección](#navegación-y-selección)
-- [Acciones sobre Archivos y Directorios](#acciones-sobre-archivos-y-directorios)
-
-## 13. Estilos de Edición
-
-- [Modo de Edición en Línea](#modo-de-edición-en-línea)
-- [Modo de Edición en Bloque](#modo-de-edición-en-bloque)
-- [Modo de Edición en Cola](#modo-de-edición-en-cola)
-
-## 14. Otros Atajos
-
-- [Pantalla Completa](#pantalla-completa)
-- [Salir de Pantalla Completa](#salir-de-pantalla-completa)
+13. [Other Shortcuts](#other-shortcuts)
 
 - **Leader Key**:  
   `space`
