@@ -3,6 +3,9 @@
 
 # Estebandev Neovim Classic - Style
 
+[KEYBINDS ES](<./docs/KEYBINDS(ES).md>)
+[KEYBINDS EN](<./docs/KEYBINDS(EN).md>)
+
 ## Features
 
 - Classic UI
