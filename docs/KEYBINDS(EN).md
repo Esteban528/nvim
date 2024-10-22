@@ -1,7 +1,5 @@
 # Keyboard Shortcuts
 
-## Índice
-
 1. [Keyboard Shortcuts](#keyboard-shortcuts)  
    1.1. [Leader Key](#leader-key)  
    1.2. [Save File](#save-file)  
