@@ -16,19 +16,19 @@
 ## Install
 
 ```bash
-mv ~/.config/nvim ~/.config/nvim.old
-rm -rf ~/.local/state/nvim
-rm -rf ~/.local/share/nvim
-git clone https://github.com/Esteban528/nvim.git ~/.config/
+mv ~/.config/nvim ~/.config/nvim.old &&
+rm -rf ~/.local/state/nvim  &&
+rm -rf ~/.local/share/nvim  &&
+git clone https://github.com/Esteban528/nvim.git ~/.config/  &&
 cd ~/.config/nvim && nvim
 ```
 
 ## Uninstall
 
 ```bash
-rm -rf ~/.config/nvim ~/.config/nvim.old
-rm -rf ~/.local/state/nvim
-rm -rf ~/.local/share/nvim
+rm -rf ~/.config/nvim ~/.config/nvim.old &&
+rm -rf ~/.local/state/nvim  &&
+rm -rf ~/.local/share/nvim  &&
 ```
 
 ## Screenshots
