@@ -13,6 +13,7 @@
 - Telescope (Find files, symbols, words, git files)
 - LSP (Mason, Intellisense menu, autocomplete, see documentation, go to definition.. etc)
 - Testing Environment (Neotest)
+- Debugging Environment
 - Autoformatting
 - [nvim-java support](https://github.com/nvim-java/nvim-java)
 
