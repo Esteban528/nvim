@@ -3,8 +3,8 @@
 
 # Estebandev Neovim Classic - Style
 
-[KEYBINDS ES](<./docs/KEYBINDS(ES).md>)
-[KEYBINDS EN](<./docs/KEYBINDS(EN).md>)
+- [KEYBINDS ES](<./docs/KEYBINDS(ES).md>)
+- [KEYBINDS EN](<./docs/KEYBINDS(EN).md>)
 
 ## Features
 
@@ -32,7 +32,7 @@ nvim
 ## Uninstall
 
 ```bash
-rm -rf ~/.config/nvim ~/.config/nvim.old
+rm -rf ~/.config/nvim 
 rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 ```
