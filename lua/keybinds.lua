@@ -59,6 +59,7 @@ map("n", "<C-k>", "<C-w>k")
 
 -- Clear highlight
 map("n", "<Esc>", ":nohl<CR>", { noremap = false, silent = true, expr = false })
+map("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- Resize window
 map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
@@ -113,7 +114,6 @@ map("n", "<leader>ds", ":lua require'dap'.step_into()<CR>", { noremap = true, si
 map("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", { noremap = true, silent = true, expr = false })
 
 -- Terminal
-
 map("n", "<leader>ft", ":ToggleTerm<CR>", { noremap = true, silent = true, expr = false })
 
 --Window
