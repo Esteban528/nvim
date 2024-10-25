@@ -46,7 +46,7 @@ map("n", "<leader>n", NeoTreeToggle, { noremap = true, silent = false, expr = fa
 map("n", "<leader>qq", ":Neotree toggle<CR>:qa!<CR>", { noremap = true, silent = true, expr = false })
 
 -- Close current window
-map("n", "<leader>wd", ":q<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<leader>wd", "<Cmd>BufferClose<CR>:q<CR>", { noremap = true, silent = true, expr = false })
 
 -- Add a semicolon at the end of the line
 map("n", "<leader>;", "$a;<ESC>")
