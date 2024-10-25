@@ -25,6 +25,7 @@ return {
 				event = { "BufRead Cargo.toml" },
 				opt = {
 					completion = {
+						completeopt = "menu,menuone,noinsert",
 						cmp = { enabled = true },
 					},
 				},

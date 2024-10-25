@@ -21,6 +21,7 @@ return { -- LSP Configuration & Plugins
 		},
 		{ "Bilal2453/luvit-meta", lazy = true },
 	},
+
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
@@ -49,7 +50,7 @@ return { -- LSP Configuration & Plugins
 				-- Jump to the type of the word under your cursor.
 				--  Useful when you're not sure what type a variable is and you want to see
 				--  the definition of its *type*, not where it was *defined*.
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+				map("<leader>dd", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
@@ -71,24 +72,33 @@ return { -- LSP Configuration & Plugins
 				--  For example, in C this would take you to the header.
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
+				map("<leader>cs", vim.lsp.codelens.run, "Run Codelens")
+				map("<leader>cc", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
+
 				-- The following two autocommands are used to highlight references of the
 				-- word under your cursor when your cursor rests there for a little while.
 				--    See `:help CursorHold` for information about when this is executed
 				--
 				-- When you move your cursor, the highlights will be cleared (the second autocommand).
+				-- When you move your cursor, the highlights will be cleared (the second autocommand).
+
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
 					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+					vim.api.nvim_create_autocmd({ "CursorHold" }, {
 						buffer = event.buf,
 						group = highlight_augroup,
-						callback = vim.lsp.buf.document_highlight,
+						callback = function()
+							vim.lsp.buf.document_highlight()
+						end,
 					})
 
 					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
 						buffer = event.buf,
 						group = highlight_augroup,
-						callback = vim.lsp.buf.clear_references,
+						callback = function()
+							vim.lsp.buf.clear_references()
+						end,
 					})
 
 					vim.api.nvim_create_autocmd("LspDetach", {
@@ -150,6 +160,13 @@ return { -- LSP Configuration & Plugins
 					Lua = {
 						completion = {
 							callSnippet = "Replace",
+						},
+						settings = {
+							Lua = {
+								codeLens = {
+									enable = true, -- Configurar CodeLens en el servidor LSP
+								},
+							},
 						},
 						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 						-- diagnostics = { disable = { 'missing-fields' } },
