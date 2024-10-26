@@ -115,7 +115,7 @@ return {
 
 			-- Excludes buffers from the tabline
 			exclude_ft = { "markdown" },
-			exclude_name = { "package.json", "Untitle", "untitle" },
+			exclude_name = { "Untitle", "untitle" },
 
 			-- A buffer to this direction will be focused (if it exists) when closing the current buffer.
 			-- Valid options are 'left' (the default), 'previous', and 'right'
