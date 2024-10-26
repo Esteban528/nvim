@@ -23,3 +23,5 @@ opt.undofile = true
 opt.undolevels = 10000
 
 opt.updatetime = 50
+
+vim.opt.wrap = false

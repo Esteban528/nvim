@@ -27,13 +27,9 @@ vim.g.mapleader = " "
 -- Save file
 map("n", "<C-s>", ":w<CR>", { noremap = true, silent = true, expr = false })
 
--- Format code with LSP
--- map(
--- 	"n",
--- 	"<leader>ft",
--- 	":lua require('conform').format({ bufnr = args.buf })",
--- 	{ noremap = true, silent = true, expr = false }
--- )
+map("n", "<leader>ww", function()
+	vim.opt.wrap = not vim.opt.wrap:get()
+end, { desc = "Toggle wrap" })
 
 function NeoTreeToggle()
 	vim.cmd("Neotree toggle")
