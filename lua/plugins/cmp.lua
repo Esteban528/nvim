@@ -6,6 +6,15 @@ return {
 		version = "v2.3",
 	},
 	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
@@ -40,6 +49,7 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
+			local tailwind_colorizer = require("tailwindcss-colorizer-cmp")
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 			require("luasnip.loaders.from_vscode").lazy_load()
 			cmp.setup({
@@ -53,8 +63,8 @@ return {
 					-- documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<S-k>"] = cmp.mapping.select_prev_item(),
-					["<S-j>"] = cmp.mapping.select_next_item(),
+					["<C-k>"] = cmp.mapping.select_prev_item(),
+					["<C-j>"] = cmp.mapping.select_next_item(),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
@@ -88,14 +98,20 @@ return {
 				}),
 				formatting = {
 					expandable_indicator = true,
-					format = lspkind.cmp_format({
-						mode = "symbol_text",
-						maxwidth = 50,
-						ellipsis_char = "...",
-						symbol_map = {
-							Copilot = "",
-						},
-					}),
+					format = function(entry, vim_item)
+						vim_item = lspkind.cmp_format({
+							mode = "symbol_text",
+							maxwidth = 50,
+							ellipsis_char = "...",
+							symbol_map = {
+								Copilot = "",
+							},
+						})(entry, vim_item)
+
+						vim_item = tailwind_colorizer.formatter(entry, vim_item)
+
+						return vim_item
+					end,
 				},
 				experimental = {
 					ghost_text = false,
