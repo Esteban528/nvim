@@ -9,6 +9,7 @@ return {
 		vim.keymap.set("n", "<leader>,", builtin.buffers, { desc = "Telescope buffers" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>fs", ":Telescope possession list<CR>", { desc = "Telescope help tags" })
+		vim.keymap.set("n", "<leader>hs", ":Telescope harpoon marks<CR>", { desc = "Telescope help tags" })
 
 		require("telescope").setup({
 			pickers = {

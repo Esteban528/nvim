@@ -80,14 +80,38 @@ vim.api.nvim_create_autocmd("TabEnter", {
 	callback = tabSelector,
 })
 
+-- Harpooon
+map("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<CR>", { noremap = true, silent = false, expr = false })
+map(
+	"n",
+	"<leader>hh",
+	":lua require('harpoon.ui').toggle_quick_menu()<CR>",
+	{ noremap = true, silent = false, expr = false }
+)
+map("n", "H", ":lua require('harpoon.ui').nav_file(1)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "J", ":lua require('harpoon.ui').nav_file(2)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "K", ":lua require('harpoon.ui').nav_file(3)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "L", ":lua require('harpoon.ui').nav_file(4)<CR>", { noremap = true, silent = true, expr = false })
+
+map(
+	"n",
+	"<leader>ft",
+	":lua require('harpoon.term').gotoTerminal(1)<CR>",
+	{ noremap = true, silent = true, expr = false }
+)
+
+map(
+	"n",
+	"<leader>ftt",
+	":lua require('harpoon.term').gotoTerminal(2)<CR>",
+	{ noremap = true, silent = true, expr = false }
+)
+
 -- DAP
 map("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", { noremap = true, silent = true, expr = false })
 map("n", "<leader>dc", ":lua require'dap'.continue()<CR>", { noremap = true, silent = true, expr = false })
 map("n", "<leader>ds", ":lua require'dap'.step_into()<CR>", { noremap = true, silent = true, expr = false })
 map("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", { noremap = true, silent = true, expr = false })
-
--- Terminal
-map("n", "<leader>ft", ":ToggleTerm<CR>", { noremap = true, silent = true, expr = false })
 
 --Window
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", silent = true })
