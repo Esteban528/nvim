@@ -42,7 +42,7 @@ map("n", "<leader>n", NeoTreeToggle, { noremap = true, silent = false, expr = fa
 map("n", "<leader>qq", ":Neotree toggle<CR>:qa!<CR>", { noremap = true, silent = true, expr = false })
 
 -- Close current window
-map("n", "<leader>wd", "<Cmd>BufferClose<CR>:q<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<leader>wd", "<Cmd>:q<CR>", { noremap = true, silent = true, expr = false })
 
 -- Add a semicolon at the end of the line
 map("n", "<leader>;", "$a;<ESC>")
@@ -63,54 +63,55 @@ map("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
--- Barbar
-local opts = nil
-map("n", "H", "<Cmd>BufferPrevious<CR>", opts)
-map("n", "L", "<Cmd>BufferNext<CR>", opts)
--- Re-order to previous/next
-map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
-map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
--- Goto buffer in position...
-map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
-map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
-map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
-map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
-map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
-map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
-map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
-map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
-map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
-map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
--- Pin/unpin buffer
-map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
--- Close buffer
-map("n", "<Leader>bd", "<Cmd>BufferClose!<CR>", opts)
+-- Tab and Buffers
+map("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true, expr = false, desc = "close buffer" })
+map("n", "<A-n>", "<cmd>tabnew<cr>", { desc = "Create new tabs" })
+map("n", "<A-l>", "<cmd>tabnext<cr>", { desc = "Go to next tab" })
+map("n", "<A-h>", "<cmd>tabprevious<cr>", { desc = "Go to previous tab" })
+map("n", "<A-w>", "<cmd>tabclose<cr>", { desc = "Go to previous tab" })
+local function tabSelector()
+	local tab_count = vim.fn.tabpagenr("$")
+	for i = 1, tab_count do
+		map("n", "<A-" .. i .. ">", ":tabn " .. i .. "<CR>", { noremap = false, silent = true, expr = false })
+	end
+end
 
-map("n", "<A-W>", "<Cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
--- Wipeout buffer
---                 :BufferWipeout
--- Close commands
---                 :BufferCloseAllButCurrent
---                 :BufferCloseAllButPinned
---                 :BufferCloseAllButCurrentOrPinned
---                 :BufferCloseBuffersLeft
---                 :BufferCloseBuffersRight
--- Magic buffer-picking mode
-map("n", "<C-p>", "<Cmd>BufferPick<CR>", opts)
--- Sort automatically by...
-map("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>", opts)
--- map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
-map("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>", opts)
-map("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>", opts)
+vim.api.nvim_create_autocmd("TabEnter", {
+	callback = tabSelector,
+})
+
+-- Harpooon
+map("n", "<leader>hm", ":lua require('harpoon.mark').add_file()<CR>", { noremap = true, silent = false, expr = false })
+map(
+	"n",
+	"<leader>hh",
+	":lua require('harpoon.ui').toggle_quick_menu()<CR>",
+	{ noremap = true, silent = false, expr = false }
+)
+map("n", "H", ":lua require('harpoon.ui').nav_file(1)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "J", ":lua require('harpoon.ui').nav_file(2)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "K", ":lua require('harpoon.ui').nav_file(3)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "L", ":lua require('harpoon.ui').nav_file(4)<CR>", { noremap = true, silent = true, expr = false })
+
+map(
+	"n",
+	"<leader>ft",
+	":lua require('harpoon.term').gotoTerminal(1)<CR>",
+	{ noremap = true, silent = true, expr = false }
+)
+
+map(
+	"n",
+	"<leader>ftt",
+	":lua require('harpoon.term').gotoTerminal(2)<CR>",
+	{ noremap = true, silent = true, expr = false }
+)
 
 -- DAP
 map("n", "<leader>db", ":lua require'dap'.toggle_breakpoint()<CR>", { noremap = true, silent = true, expr = false })
 map("n", "<leader>dc", ":lua require'dap'.continue()<CR>", { noremap = true, silent = true, expr = false })
 map("n", "<leader>ds", ":lua require'dap'.step_into()<CR>", { noremap = true, silent = true, expr = false })
 map("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", { noremap = true, silent = true, expr = false })
-
--- Terminal
-map("n", "<leader>ft", ":ToggleTerm<CR>", { noremap = true, silent = true, expr = false })
 
 --Window
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", silent = true })
