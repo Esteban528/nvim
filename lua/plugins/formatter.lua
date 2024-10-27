@@ -27,7 +27,7 @@ return {
 					angular = { "prettierd", "prettier", stop_after_first = true },
 
 					-- Java
-					java = { "google-java-format", "google-java-format" },
+					java = { "google-java-format", "jdtls" },
 				},
 			})
 		end,
