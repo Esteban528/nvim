@@ -3,7 +3,18 @@ return {
 		"stevearc/conform.nvim",
 		opts = {},
 		config = function()
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*",
+				callback = function(args)
+					require("conform").format({ bufnr = args.buf })
+				end,
+			})
+
 			require("conform").setup({
+				format_on_save = {
+					timeout_ms = 500,
+					lsp_format = "fallback",
+				},
 				formatters_by_ft = {
 					lua = { "stylua" },
 					-- Conform will run multiple formatters sequentially
@@ -11,8 +22,8 @@ return {
 					-- You can customize some of the format options for the filetype (:help conform.format)
 					rust = { "rustfmt", lsp_format = "fallback" },
 					-- Conform will run the first available formatter
-					javascript = { "prettierd", "prettier", stop_after_first = true },
-					typescript = { "prettierd", "prettier", stop_after_first = true },
+					javascript = { "biome" },
+					typescript = { "biome" },
 					json = { "prettierd", "prettier", stop_after_first = true },
 					html = { "prettierd", "prettier", stop_after_first = true },
 					css = { "prettierd", "prettier", stop_after_first = true },
@@ -27,7 +38,7 @@ return {
 					angular = { "prettierd", "prettier", stop_after_first = true },
 
 					-- Java
-					java = { "google-java-format", "jdtls" },
+					java = { "google-java-format" },
 				},
 			})
 		end,

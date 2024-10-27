@@ -11,19 +11,11 @@ local function map(mode, key, result, opts)
 	end
 end
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
-	end,
-})
-
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 -- Set leader key
 vim.g.mapleader = " "
 
--- Key mappings
 -- Save file
 map("n", "<C-s>", ":w<CR>", { noremap = true, silent = true, expr = false })
 
