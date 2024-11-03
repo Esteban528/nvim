@@ -87,15 +87,29 @@ map("n", "L", ":lua require('harpoon.ui').nav_file(4)<CR>", { noremap = true, si
 
 map(
 	"n",
-	"<leader>ft",
+	"<leader>th",
 	":lua require('harpoon.term').gotoTerminal(1)<CR>",
 	{ noremap = true, silent = true, expr = false }
 )
 
 map(
 	"n",
-	"<leader>ftt",
+	"<leader>tj",
 	":lua require('harpoon.term').gotoTerminal(2)<CR>",
+	{ noremap = true, silent = true, expr = false }
+)
+
+map(
+	"n",
+	"<leader>tk",
+	":lua require('harpoon.term').gotoTerminal(3)<CR>",
+	{ noremap = true, silent = true, expr = false }
+)
+
+map(
+	"n",
+	"<leader>tl",
+	":lua require('harpoon.term').gotoTerminal(4)<CR>",
 	{ noremap = true, silent = true, expr = false }
 )
 
