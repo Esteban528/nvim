@@ -25,3 +25,5 @@ opt.undolevels = 10000
 opt.updatetime = 50
 
 vim.opt.wrap = false
+
+vim.cmd("autocmd FileType java setlocal et ts=4 sw=4 sts=4 <CR>")
