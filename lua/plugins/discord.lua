@@ -59,19 +59,6 @@ return {
 				},
 				-- assets = nil, -- Custom file icons, see the wiki*
 				assets = {
-					java = {
-						name = "Java", -- Optional override for the icon name, redundant for language types
-						icon = "https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/181_Java-512.png", -- Rich Presence asset name or URL
-						tooltip = "Java", -- Text to display when hovering over the icon
-						type = 0, -- 0 = language, 1 = file browser, 2 = plugin manager, 3 = lsp manager, 4 = vcs; defaults to language
-					},
-
-					lua = {
-						name = "lua", -- Optional override for the icon name, redundant for language types
-						icon = "https://www.shareicon.net/download/128x128//2016/06/18/603669_lua_512x512.png", -- Rich Presence asset name or URL
-						tooltip = "Lua", -- Text to display when hovering over the icon
-						type = 0, -- 0 = language, 1 = file browser, 2 = plugin manager, 3 = lsp manager, 4 = vcs; defaults to language
-					},
 				},
 			})
 		end,

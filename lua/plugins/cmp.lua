@@ -30,16 +30,6 @@ return {
 			"windwp/nvim-autopairs",
 			"rafamadriz/friendly-snippets",
 			{
-				"Saecki/crates.nvim",
-				event = { "BufRead Cargo.toml" },
-				opt = {
-					completion = {
-						completeopt = "menu,menuone,noinsert",
-						cmp = { enabled = true },
-					},
-				},
-			},
-			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.3",
 			},

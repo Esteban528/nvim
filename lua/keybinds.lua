@@ -122,3 +122,7 @@ map("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", { noremap = true, si
 --Window
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", silent = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", silent = true })
+
+-- Indent
+map("v", "<", "<gv")
+map("v", ">", ">gv")
