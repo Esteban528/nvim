@@ -23,15 +23,15 @@ map("n", "<leader>ww", function()
 	vim.opt.wrap = not vim.opt.wrap:get()
 end, { desc = "Toggle wrap" })
 
-function NeoTreeToggle()
-	vim.cmd("Neotree toggle")
-end
+-- function NeoTreeToggle()
+-- 	vim.cmd("Neotree toggle")
+-- end
 
 -- Toggle Tree
-map("n", "<leader>n", NeoTreeToggle, { noremap = true, silent = false, expr = false })
+-- map("n", "<leader>n", NeoTreeToggle, { noremap = true, silent = false, expr = false })
 
 -- Close all windows
-map("n", "<leader>qq", ":Neotree toggle<CR>:qa!<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<leader>qq", ":qa!<CR>", { noremap = true, silent = true, expr = false })
 
 -- Close current window
 map("n", "<leader>wd", "<Cmd>:q<CR>", { noremap = true, silent = true, expr = false })
