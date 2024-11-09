@@ -40,6 +40,7 @@ return {
 					graphql = { "prettierd", "prettier", stop_after_first = true },
 					flow = { "prettierd", "prettier", stop_after_first = true },
 					angular = { "prettierd", "prettier", stop_after_first = true },
+          xml = {"xmlformatter"},
 
 					-- Java
 					java = { "jdtls" },
