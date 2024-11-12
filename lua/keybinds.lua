@@ -80,10 +80,10 @@ map(
 	":lua require('harpoon.ui').toggle_quick_menu()<CR>",
 	{ noremap = true, silent = false, expr = false }
 )
-map("n", "H", ":lua require('harpoon.ui').nav_file(1)<CR>", { noremap = true, silent = true, expr = false })
-map("n", "J", ":lua require('harpoon.ui').nav_file(2)<CR>", { noremap = true, silent = true, expr = false })
-map("n", "K", ":lua require('harpoon.ui').nav_file(3)<CR>", { noremap = true, silent = true, expr = false })
-map("n", "L", ":lua require('harpoon.ui').nav_file(4)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<A-h>", ":lua require('harpoon.ui').nav_file(1)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<A-j>", ":lua require('harpoon.ui').nav_file(2)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<A-k>", ":lua require('harpoon.ui').nav_file(3)<CR>", { noremap = true, silent = true, expr = false })
+map("n", "<A-l>", ":lua require('harpoon.ui').nav_file(4)<CR>", { noremap = true, silent = true, expr = false })
 
 map(
 	"n",
