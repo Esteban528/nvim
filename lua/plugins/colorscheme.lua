@@ -1,10 +1,10 @@
 return {
-	"ellisonleao/gruvbox.nvim",
-	-- "sainnhe/gruvbox-material",
-	-- "morhetz/gruvbox",
+  "EdenEast/nightfox.nvim",
+
 	priority = 1000,
 	config = function()
 		vim.o.background = "dark"
-		vim.cmd("colorscheme gruvbox")
+    -- vim.opt.termguicolors = true
+		vim.cmd("colorscheme carbonfox")
 	end,
 }
