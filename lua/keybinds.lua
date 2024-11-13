@@ -58,8 +58,8 @@ map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Wid
 -- Tab and Buffers
 map("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true, expr = false, desc = "close buffer" })
 map("n", "<A-n>", "<cmd>tabnew<cr>", { desc = "Create new tabs" })
-map("n", "<A-l>", "<cmd>tabnext<cr>", { desc = "Go to next tab" })
-map("n", "<A-h>", "<cmd>tabprevious<cr>", { desc = "Go to previous tab" })
+-- map("n", "<A-l>", "<cmd>tabnext<cr>", { desc = "Go to next tab" })
+-- map("n", "<A-h>", "<cmd>tabprevious<cr>", { desc = "Go to previous tab" })
 map("n", "<A-w>", "<cmd>tabclose<cr>", { desc = "Go to previous tab" })
 local function tabSelector()
 	local tab_count = vim.fn.tabpagenr("$")
