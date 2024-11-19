@@ -1,16 +1,6 @@
 return {
-
 	{
 		"mg979/vim-visual-multi",
-	},
-	{
-		"nvim-lua/plenary.nvim",
-		lazy = true,
-	},
-	{
-		-- Icons for file types
-		"nvim-tree/nvim-web-devicons",
-		lazy = true,
 	},
 	{
 		"NvChad/nvim-colorizer.lua",
