@@ -41,7 +41,7 @@ map("n", "<leader>;", "$a;<ESC>")
 
 -- Window navigation
 map("n", "<C-h>", "<C-w>h")
-map("n", "<C-l>", "<C-w>l")
+map("n", "<C-l>", "<C-w>l", {noremap =true})
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 

@@ -87,7 +87,7 @@ return {
 					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-					map("K", ":Lspsaga hover_doc<CR>", "Hover definition")
+					-- map("K", ":Lspsaga hover_doc<CR>", "Hover definition")
 
 					map("<leader>cs", vim.lsp.codelens.run, "Run Codelens")
 					map("<leader>cc", vim.lsp.codelens.refresh, "Refresh & Display Codelens")
@@ -250,9 +250,11 @@ return {
 	{
 		"nvimdev/lspsaga.nvim",
 		config = function()
+
 			require("lspsaga").setup({
 				ui = {
 					code_action = "",
+          lines = { ' ', ' ', ' ', ' ', ' ' }
 				},
 			})
 		end,
