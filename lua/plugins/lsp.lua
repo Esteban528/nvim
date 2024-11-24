@@ -1,16 +1,13 @@
 local highlight_boolean = false
 return {
-	{ -- LSP Configuration & Plugins
+	{ 
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			-- Automatically install LSPs and related tools to stdpath for Neovim
 			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"nvim-java/nvim-java",
 
-			-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-			-- used for completion, annotations and signatures of Neovim apis
 			{
 				"folke/lazydev.nvim",
 				ft = "lua",
@@ -228,20 +225,13 @@ return {
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful when disabling
-						-- certain features of an LSP (for example, turning off formatting for tsserver)
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
 					end,
 					jdtls = function()
-						require("java").setup({
-							-- Your custom jdtls settings goes here
-						})
+						require("java").setup({})
 
-						require("lspconfig").jdtls.setup({
-							-- Your custom nvim-java configuration goes here
-						})
+						require("lspconfig").jdtls.setup({})
 					end,
 				},
 			})
@@ -250,17 +240,15 @@ return {
 	{
 		"nvimdev/lspsaga.nvim",
 		config = function()
-
 			require("lspsaga").setup({
 				ui = {
 					code_action = "",
-          lines = { ' ', ' ', ' ', ' ', ' ' }
+					lines = { " ", " ", " ", " ", " " },
 				},
 			})
 		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons", -- optional
 		},
 	},
 }
