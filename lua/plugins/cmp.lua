@@ -1,104 +1,107 @@
----@diagnostic disable: missing-fields
+return {
+	"saghen/blink.cmp",
+	dependencies = "rafamadriz/friendly-snippets",
 
-return { -- Autocompletion
-	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
-	dependencies = {
-		-- Snippet Engine & its associated nvim-cmp source
-		{
-			"L3MON4D3/LuaSnip",
-			dependencies = {
-				{
-				  'rafamadriz/friendly-snippets',
-				  config = function()
-				    require('luasnip.loaders.from_vscode').lazy_load()
-				  end,
+	version = "*",
+	opts = {
+		completion = {
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 200,
+			},
+			keyword = { range = "full" },
+
+			accept = { auto_brackets = { enabled = true } },
+			-- Insert completion item on selection, don't select by default
+			-- list = { selection = "auto_insert" },
+
+			menu = {
+				auto_show = true,
+
+				-- nvim-cmp style menu
+				draw = {
+					treesitter = { "lsp" },
+					columns = {
+						{ "kind_icon" },
+						{ "label", "label_description", gap = 0.5 },
+            {"kind"}
+					},
+				}
+			},
+
+			-- Display a preview of the selected item on the current line
+			ghost_text = { enabled = true },
+
+			trigger = {
+				show_on_insert_on_trigger_character = true,
+			},
+		},
+
+		keymap = {
+			-- 'default' for mappings similar to built-in completion
+			-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+			-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+			-- See the full "keymap" documentation for information on defining your own keymap.
+			preset = "none",
+
+			["<S-Tab>"] = { "select_prev", "fallback" },
+			["<Tab>"] = { "select_next", "fallback" },
+
+			-- disable a keymap from the preset
+			["<C-e>"] = {},
+
+			-- show with a list of providers
+			["<C-space>"] = {
+				function(cmp)
+					cmp.show({ providers = { "snippets" } })
+				end,
+			},
+
+			["<Enter>"] = {
+				function(cmp)
+					if cmp.snippet_active() then
+						return cmp.accept()
+					else
+						return cmp.select_and_accept()
+					end
+				end,
+				"snippet_forward",
+				"fallback",
+			},
+
+			-- control whether the next command will be run when using a function
+			-- ["<C-n>"] = {
+			-- 	function(cmp)
+			-- 		if some_condition then
+			-- 			return
+			-- 		end -- runs the next command
+			-- 		return true -- doesn't run the next command
+			-- 	end,
+			-- 	"select_next",
+			-- },
+		},
+		appearance = {
+			-- Sets the fallback highlight groups to nvim-cmp's highlight groups
+			-- Useful for when your theme doesn't support blink.cmp
+			-- Will be removed in a future release
+			-- use_nvim_cmp_as_default = true,
+			-- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+			-- Adjusts spacing to ensure icons are aligned
+			nerd_font_variant = "normal",
+		},
+
+		-- Default list of enabled providers defined so that you can extend it
+		-- elsewhere in your config, without redefining it, due to `opts_extend`
+		sources = {
+			default = { "lsp", "path", "snippets", "buffer" },
+			providers = {
+				lsp = {
+					name = "LSP",
+					module = "blink.cmp.sources.lsp",
 				},
 			},
 		},
-		"saadparwaiz1/cmp_luasnip",
-
-		-- Adds other completion capabilities.
-		--  nvim-cmp does not ship with all sources by default. They are split
-		--  into multiple repos for maintenance purposes.
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-path",
 	},
-	config = function()
-		-- See `:help cmp`
-		local cmp = require("cmp")
-		local luasnip = require("luasnip")
-		luasnip.config.setup({})
-
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
-			completion = { completeopt = "menu,menuone,noinsert" },
-
-			-- For an understanding of why these mappings were
-			-- chosen, you will need to read `:help ins-completion`
-			--
-			-- No, but seriously. Please read `:help ins-completion`, it is really good!
-			mapping = cmp.mapping.preset.insert({
-				-- Select the [n]ext item
-				["<C-n>"] = cmp.mapping.select_next_item(),
-				-- Select the [p]revious item
-				["<C-p>"] = cmp.mapping.select_prev_item(),
-
-				-- Scroll the documentation window [b]ack / [f]orward
-				["<C-b>"] = cmp.mapping.scroll_docs(-4),
-				["<C-f>"] = cmp.mapping.scroll_docs(4),
-
-				-- Accept ([y]es) the completion.
-				--  This will auto-import if your LSP supports it.
-				--  This will expand snippets if the LSP sent a snippet.
-				["<C-y>"] = cmp.mapping.confirm({ select = true }),
-
-				-- If you prefer more traditional completion keymaps,
-				-- you can uncomment the following lines
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<Tab>"] = cmp.mapping.select_next_item(),
-				["<S-Tab>"] = cmp.mapping.select_prev_item(),
-
-				-- Manually trigger a completion from nvim-cmp.
-				--  Generally you don't need this, because nvim-cmp will display
-				--  completions whenever it has completion options available.
-				["<C-Space>"] = cmp.mapping.complete({}),
-
-				-- Think of <c-l> as moving to the right of your snippet expansion.
-				--  So if you have a snippet that's like:
-				--  function $name($args)
-				--    $body
-				--  end
-				--
-				-- <c-l> will move you to the right of each of the expansion locations.
-				-- <c-h> is similar, except moving you backwards.
-				["<C-l>"] = cmp.mapping(function()
-					if luasnip.expand_or_locally_jumpable() then
-						luasnip.expand_or_jump()
-					end
-				end, { "i", "s" }),
-				["<C-h>"] = cmp.mapping(function()
-					if luasnip.locally_jumpable(-1) then
-						luasnip.jump(-1)
-					end
-				end, { "i", "s" }),
-
-			}),
-			sources = {
-				{
-					name = "lazydev",
-					group_index = 0,
-				},
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "path" },
-				-- { name = "copilot" },
-				{ name = "buffer", max_item_count = 3 },
-			},
-		})
-	end,
+	opts_extend = { "sources.default" },
+	signature = { enabled = true },
 }
