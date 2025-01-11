@@ -18,3 +18,4 @@ require("lazy").setup("plugins")
 
 -- require('mods')
 vim.g.NERDTreeWinSize = 42
+
