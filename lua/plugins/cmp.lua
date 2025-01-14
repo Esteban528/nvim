@@ -14,7 +14,11 @@ return {
 			accept = { auto_brackets = { enabled = true } },
 			-- Insert completion item on selection, don't select by default
 			-- list = { selection = "auto_insert" },
-
+			list = {
+				selection = {
+					preselect = false,
+				},
+			},
 			menu = {
 				auto_show = true,
 
@@ -24,9 +28,9 @@ return {
 					columns = {
 						{ "kind_icon" },
 						{ "label", "label_description", gap = 0.5 },
-            {"kind"}
+						{ "kind" },
 					},
-				}
+				},
 			},
 
 			-- Display a preview of the selected item on the current line
