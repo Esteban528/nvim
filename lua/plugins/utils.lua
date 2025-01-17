@@ -9,6 +9,7 @@ return {
 			require("mini.files").setup()
 			require("mini.statusline").setup()
 			require("mini.pairs").setup()
+      require('mini.snippets').setup({})
 			vim.keymap.set("n", "<leader>n", ":lua MiniFiles.open() <CR>")
 
 			require("mini.icons").setup()

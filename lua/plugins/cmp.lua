@@ -1,7 +1,6 @@
 return {
 	"saghen/blink.cmp",
 	dependencies = "rafamadriz/friendly-snippets",
-
 	version = "*",
 	opts = {
 		completion = {
@@ -72,7 +71,9 @@ return {
 				"snippet_forward",
 				"fallback",
 			},
-
+			cmdline = {
+				preset = "enter",
+			},
 			-- control whether the next command will be run when using a function
 			-- ["<C-n>"] = {
 			-- 	function(cmp)
