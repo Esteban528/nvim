@@ -19,3 +19,4 @@ require("lazy").setup("plugins")
 -- require('mods')
 vim.g.NERDTreeWinSize = 42
 
+vim.cmd("colorscheme randomhue")
