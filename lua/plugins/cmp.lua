@@ -15,7 +15,7 @@ return {
 			-- list = { selection = "auto_insert" },
 			list = {
 				selection = {
-					preselect = false,
+					preselect = true,
 				},
 			},
 			menu = {
@@ -39,7 +39,6 @@ return {
 				show_on_insert_on_trigger_character = true,
 			},
 		},
-
 		keymap = {
 			-- 'default' for mappings similar to built-in completion
 			-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
@@ -72,18 +71,8 @@ return {
 				"fallback",
 			},
 			cmdline = {
-				preset = "enter",
+				preset = "default",
 			},
-			-- control whether the next command will be run when using a function
-			-- ["<C-n>"] = {
-			-- 	function(cmp)
-			-- 		if some_condition then
-			-- 			return
-			-- 		end -- runs the next command
-			-- 		return true -- doesn't run the next command
-			-- 	end,
-			-- 	"select_next",
-			-- },
 		},
 		appearance = {
 			-- Sets the fallback highlight groups to nvim-cmp's highlight groups
