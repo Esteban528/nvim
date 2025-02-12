@@ -1,6 +1,9 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = "rafamadriz/friendly-snippets",
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		"L3MON4D3/LuaSnip",
+	},
 	version = "*",
 	opts = {
 		completion = {
@@ -11,17 +14,16 @@ return {
 			keyword = { range = "full" },
 
 			accept = { auto_brackets = { enabled = true } },
-			-- Insert completion item on selection, don't select by default
-			-- list = { selection = "auto_insert" },
+
 			list = {
 				selection = {
 					preselect = true,
 				},
 			},
+
 			menu = {
 				auto_show = true,
 
-				-- nvim-cmp style menu
 				draw = {
 					treesitter = { "lsp" },
 					columns = {
@@ -32,7 +34,6 @@ return {
 				},
 			},
 
-			-- Display a preview of the selected item on the current line
 			ghost_text = { enabled = true },
 
 			trigger = {
@@ -40,24 +41,12 @@ return {
 			},
 		},
 		keymap = {
-			-- 'default' for mappings similar to built-in completion
-			-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-			-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-			-- See the full "keymap" documentation for information on defining your own keymap.
 			preset = "none",
 
 			["<S-Tab>"] = { "select_prev", "fallback" },
 			["<Tab>"] = { "select_next", "fallback" },
 
-			-- disable a keymap from the preset
-			["<C-e>"] = {},
-
-			-- show with a list of providers
-			["<C-space>"] = {
-				function(cmp)
-					cmp.show({ providers = { "snippets" } })
-				end,
-			},
+			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
 			["<Enter>"] = {
 				function(cmp)
@@ -75,17 +64,9 @@ return {
 			},
 		},
 		appearance = {
-			-- Sets the fallback highlight groups to nvim-cmp's highlight groups
-			-- Useful for when your theme doesn't support blink.cmp
-			-- Will be removed in a future release
-			-- use_nvim_cmp_as_default = true,
-			-- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-			-- Adjusts spacing to ensure icons are aligned
-			nerd_font_variant = "normal",
+			nerd_font_variant = "mono",
 		},
 
-		-- Default list of enabled providers defined so that you can extend it
-		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 			providers = {
@@ -95,7 +76,8 @@ return {
 				},
 			},
 		},
+		-- opts_extend = { "sources.default" },
+		snippets = { preset = "default" },
+		signature = { enabled = true },
 	},
-	opts_extend = { "sources.default" },
-	signature = { enabled = true },
 }
