@@ -82,7 +82,7 @@ return {
 
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
-					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+					map("gD", ":Lspsaga peek_definition<CR>", "[G]oto [D]eclaration")
 
 					-- map("K", ":Lspsaga hover_doc<CR>", "Hover definition")
 
@@ -91,8 +91,8 @@ return {
 
 					-- Error and references
 					map("<leader>cd", vim.diagnostic.open_float, "Line Diagnostics")
-					map("]d", diagnostic_goto(true), "Next Diagnostic")
-					map("[d", diagnostic_goto(false), "Prev Diagnostic")
+					map("]d", ":Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic")
+					map("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Prev Diagnostic")
 					map("]e", diagnostic_goto(true, "ERROR"), "Next Error")
 					map("[e", diagnostic_goto(false, "ERROR"), "Prev Error")
 					map("]w", diagnostic_goto(true, "WARN"), "Next Warning")
@@ -139,15 +139,6 @@ return {
 								end,
 							})
 						end
-					end
-					-- The following code creates a keymap to toggle inlay hints in your
-					-- code, if the language server you are using supports them
-					--
-					-- This may be unwanted, since they displace some of your code
-					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-						map("<leader>th", function()
-							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-						end, "[T]oggle Inlay [H]ints")
 					end
 				end,
 			})

@@ -1,6 +1,5 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.8",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local builtin = require("telescope.builtin")
@@ -50,7 +49,7 @@ return {
 					end,
 				},
 				file_sorter = require("telescope.sorters").get_fuzzy_file,
-				file_ignore_patterns = { "node_modules", "target" },
+				file_ignore_patterns = { "node_modules", "target", "files" },
 				generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
 				path_display = { "truncate" },
 				winblend = 0,
