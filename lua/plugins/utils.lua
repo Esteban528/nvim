@@ -9,11 +9,18 @@ return {
 			-- require("mini.files").setup()
 			require("mini.statusline").setup()
 			require("mini.pairs").setup()
-      require('mini.snippets').setup({})
+			require("mini.snippets").setup({})
 			-- vim.keymap.set("n", "<leader>n", ":lua MiniFiles.open() <CR>")
 
 			require("mini.icons").setup()
 			MiniIcons.mock_nvim_web_devicons()
+			require("mini.indentscope").setup({
+				draw = {
+					-- Delay (in ms) between event and start of drawing scope indicator
+					delay = 0,
+				},
+			})
+			vim.cmd("colorscheme minicyan")
 		end,
 	},
 	{
@@ -33,5 +40,18 @@ return {
 			{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
 			{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 		},
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			vim.cmd("set termguicolors");
+			require("colorizer").setup({
+				"css",
+				"javascript",
+				html = {
+					mode = "foreground",
+				},
+			})
+		end,
 	},
 }

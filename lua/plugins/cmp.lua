@@ -59,16 +59,19 @@ return {
 				"snippet_forward",
 				"fallback",
 			},
-			cmdline = {
+		},
+
+		cmdline = {
+      keymap = {
 				preset = "default",
-			},
+      }
 		},
 		appearance = {
 			nerd_font_variant = "mono",
 		},
 
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "snippets", "path", "buffer" },
 			providers = {
 				lsp = {
 					name = "LSP",
