@@ -20,6 +20,7 @@ return {
 					delay = 0,
 				},
 			})
+      require("mini.diff").setup();
 			vim.cmd("colorscheme minicyan")
 		end,
 	},
