@@ -22,6 +22,7 @@ return {
 			})
       require("mini.diff").setup();
 			vim.cmd("colorscheme minicyan")
+      vim.cmd("set signcolumn=number")
 		end,
 	},
 	{
