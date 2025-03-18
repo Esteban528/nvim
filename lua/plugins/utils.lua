@@ -29,14 +29,14 @@ return {
 					light = "lotus",
 				},
 			})
-      vim.cmd("colorscheme kanagawa")
+			vim.cmd("colorscheme kanagawa")
 		end,
 	},
 	{
 		"echasnovski/mini.nvim",
 		version = false,
 		config = function()
-			-- require("mini.files").setup()
+			require("mini.files").setup()
 			require("mini.statusline").setup()
 			require("mini.pairs").setup()
 			require("mini.snippets").setup({})
@@ -80,6 +80,7 @@ return {
 			require("colorizer").setup({
 				"css",
 				"javascript",
+				"yml",
 				html = {
 					mode = "foreground",
 				},

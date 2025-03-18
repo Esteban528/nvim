@@ -62,9 +62,9 @@ return {
 		},
 
 		cmdline = {
-      keymap = {
+			keymap = {
 				preset = "default",
-      }
+			},
 		},
 		appearance = {
 			nerd_font_variant = "mono",
