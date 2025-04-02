@@ -11,34 +11,6 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 200,
 			},
-			keyword = { range = "full" },
-
-			accept = { auto_brackets = { enabled = true } },
-
-			list = {
-				selection = {
-					preselect = true,
-				},
-			},
-
-			menu = {
-				auto_show = true,
-
-				draw = {
-					treesitter = { "lsp" },
-					columns = {
-						{ "kind_icon" },
-						{ "label", "label_description", gap = 0.5 },
-						{ "kind" },
-					},
-				},
-			},
-
-			ghost_text = { enabled = true },
-
-			trigger = {
-				show_on_insert_on_trigger_character = true,
-			},
 		},
 		keymap = {
 			preset = "none",
@@ -60,27 +32,5 @@ return {
 				"fallback",
 			},
 		},
-
-		cmdline = {
-			keymap = {
-				preset = "default",
-			},
-		},
-		appearance = {
-			nerd_font_variant = "mono",
-		},
-
-		sources = {
-			default = { "lsp", "snippets", "path", "buffer" },
-			providers = {
-				lsp = {
-					name = "LSP",
-					module = "blink.cmp.sources.lsp",
-				},
-			},
-		},
-		-- opts_extend = { "sources.default" },
-		snippets = { preset = "default" },
-		signature = { enabled = true },
 	},
 }
