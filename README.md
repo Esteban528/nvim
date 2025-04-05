@@ -15,7 +15,7 @@
 ```bash
 git clone https://github.com/Esteban528/nvim.git ~/.config/nvim
 rm -rf ~/.config/nvim/.git
-cd ~/.config/nvim/.git
+cd ~/.config/nvim
 nvim
 ```
 
@@ -26,7 +26,7 @@ rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 git clone https://github.com/Esteban528/nvim.git ~/.config/nvim
 rm -rf ~/.config/nvim/.git
-cd ~/.config/nvim/.git
+cd ~/.config/nvim
 nvim
 ```
 
