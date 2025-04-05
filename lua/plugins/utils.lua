@@ -1,8 +1,5 @@
 return {
 	{
-		"mg979/vim-visual-multi",
-	},
-	{
 		"rebelot/kanagawa.nvim",
 		config = function()
 			require("kanagawa").setup({

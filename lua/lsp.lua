@@ -17,15 +17,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		local telescope_ok, telescope = pcall(require, "telescope.builtin")
 		if telescope_ok then
-			map("gd", telescope.lsp_definitions, "[G]oto [D]efinition")
-			map("gr", telescope.lsp_references, "[G]oto [R]eferences")
-			map("gI", telescope.lsp_implementations, "[G]oto [I]mplementation")
+			-- map("gd", telescope.lsp_definitions, "[G]oto [D]efinition")
+			-- map("gr", telescope.lsp_references, "[G]oto [R]eferences")
+			-- map("gI", telescope.lsp_implementations, "[G]oto [I]mplementation")
 			map("<leader>dd", telescope.lsp_type_definitions, "Type [D]efinition")
 			map("<leader>ds", telescope.lsp_document_symbols, "[D]ocument [S]ymbols")
 			map("<leader>ws", telescope.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 		else
 			vim.notify("Telescope not found", vim.log.levels.WARN)
 		end
+
+		map("gd", vim.lsp.buf.definition, "Go to definition")
 
 		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
@@ -52,7 +54,7 @@ vim.lsp.config("*", {
 
 -- require("java").setup({})
 vim.lsp.enable("luals")
-vim.lsp.enable("jdtls")
+--vim.lsp.enable("jdtls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("html_lsp")
 vim.lsp.enable("csslsp")

@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
         "Path",
-        "vim"
+        "vim",
+        "MiniIcons"
     ]
 }
