@@ -1,24 +1,25 @@
 ![Neovim](https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white)
 
-# Estebandev Neovim Classic - Style
-
-- [KEYBINDS ES](<./docs/KEYBINDS(ES).md>)
-- [KEYBINDS EN](<./docs/KEYBINDS(EN).md>)
+# Estebandev Neovim
 
 ## Features
 
-- Classic UI
-- Tree for files
+- Minimal UI - vanilla
 - Telescope (Find files, symbols, words, git files)
-- LSP (Mason, Intellisense menu, autocomplete, see documentation, go to definition.. etc)
-- Testing Environment (Neotest)
-- Debugging Environment
+- LSP native nvim 0.11
 - Autoformatting
-- [nvim-java support](https://github.com/nvim-java/nvim-java)
 
 ## Install
 
+```bash
+git clone https://github.com/Esteban528/nvim.git ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+cd ~/.config/nvim/.git
+nvim
+```
+
+## Replace (No override old config)
 ```bash
 mv ~/.config/nvim ~/.config/nvim.old
 rm -rf ~/.local/state/nvim
@@ -37,9 +38,5 @@ rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 ```
 
-## Screenshots
-
-![ss1](./assets/20241022_144258_grim.png)
-![ss2](./assets/20241022_154151_grim.png)
-![ss3](./assets/20241022_154210_grim.png)
-![ss4](./assets/20241022_154215_grim.png)
+> [!NOTE]  
+> I have removed as many plugins as possible with the idea of having a simple and effective environment, I eliminated many functions so I left only the essentials.
