@@ -1,0 +1,13 @@
+{
+  "class": {
+    "prefix": "class",
+    "body": [
+      "package ${1:${TM_DIRECTORY/(.*\\/src\\/main\\/java\\/)(.*)/${2/\\//./}/}};",
+      "",
+      "public class ${2:${TM_FILENAME_BASE}} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Java class with automatic package and class name"
+  }
+}
