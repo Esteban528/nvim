@@ -12,6 +12,7 @@ return {
 				auto_show_delay_ms = 200,
 			},
 		},
+
 		keymap = {
 			preset = "none",
 

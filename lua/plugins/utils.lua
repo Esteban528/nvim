@@ -10,9 +10,9 @@ return {
 				keywordStyle = {},
 				statementStyle = { bold = true },
 				typeStyle = {},
-				transparent = false, -- do not set background color
+				transparent = true, -- do not set background color
 				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-				terminalColors = false, -- define vim.g.terminal_color_{0,17}
+				terminalColors = true, -- define vim.g.terminal_color_{0,17}
 				colors = { -- add/modify theme and palette colors
 					palette = {},
 					theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
@@ -40,6 +40,8 @@ return {
 			vim.keymap.set("n", "<leader>n", ":lua MiniFiles.open() <CR>")
 
 			require("mini.icons").setup()
+			require("mini.notify").setup()
+			require("mini.git").setup()
 			MiniIcons.mock_nvim_web_devicons()
 			require("mini.indentscope").setup({
 				draw = {
