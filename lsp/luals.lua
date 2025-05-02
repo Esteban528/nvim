@@ -1,19 +1,14 @@
 return {
   cmd = { 'lua-language-server' },
   filetypes = { 'lua' },
-  root_markers = { '.luarc.json', '.luarc.jsonc' },
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace",
-      },
-      settings = {
-        Lua = {
-          codeLens = {
-            enable = true, -- Configurar CodeLens en el servidor LSP
-          },
-        },
-      },
-    },
-  }
+  root_markers = {
+    '.luarc.json',
+    '.luarc.jsonc',
+    '.luacheckrc',
+    '.stylua.toml',
+    'stylua.toml',
+    'selene.toml',
+    'selene.yml',
+    '.git',
+  },
 }

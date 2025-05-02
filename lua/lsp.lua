@@ -17,9 +17,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		local telescope_ok, telescope = pcall(require, "telescope.builtin")
 		if telescope_ok then
-			-- map("gd", telescope.lsp_definitions, "[G]oto [D]efinition")
-			-- map("gr", telescope.lsp_references, "[G]oto [R]eferences")
-			-- map("gI", telescope.lsp_implementations, "[G]oto [I]mplementation")
+			map("gd", telescope.lsp_definitions, "[G]oto [D]efinition")
+			map("gr", telescope.lsp_references, "[G]oto [R]eferences")
+			map("gI", telescope.lsp_implementations, "[G]oto [I]mplementation")
 			map("<leader>dd", telescope.lsp_type_definitions, "Type [D]efinition")
 			map("<leader>ds", telescope.lsp_document_symbols, "[D]ocument [S]ymbols")
 			map("<leader>ws", telescope.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
@@ -56,8 +56,10 @@ vim.lsp.config("*", {
 vim.lsp.enable("luals")
 --vim.lsp.enable("jdtls")
 vim.lsp.enable("ts_ls")
+-- vim.lsp.enable("eslint")
 vim.lsp.enable("html_lsp")
 vim.lsp.enable("csslsp")
 vim.lsp.enable("emmetls")
 vim.lsp.enable("tailwindls")
 vim.lsp.enable("lemminx")
+vim.lsp.enable("angular")
