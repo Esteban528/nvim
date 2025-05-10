@@ -2,7 +2,6 @@ local home = os.getenv("HOME")
 local workspace_path = home .. "/.local/share/nvim/jdtls-workspace/"
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = workspace_path .. project_name
-local jdk_path = home .. "/.local/share/nvim/mason/packages/openjdk-17/jdk-17.0.2"
 local lombok_path = home .. "/.local/share/nvim/mason/packages/lombok-nightly/lombok.jar"
 local config_path = home .. "/.local/share/nvim/mason/packages/jdtls/config_linux"
 local equinox_path =
@@ -10,6 +9,8 @@ local equinox_path =
 
 local _, jdtls = pcall(require, "jdtls")
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
+local javaDebug = home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.*.jar"
+
 
 local config = {
 	cmd = {
@@ -66,7 +67,9 @@ local config = {
 	},
 
 	init_options = {
-		bundles = {},
+		bundles = {
+			vim.fn.glob(javaDebug, 1)
+		},
 	},
 }
 require("jdtls").start_or_attach(config)
