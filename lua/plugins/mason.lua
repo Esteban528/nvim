@@ -37,17 +37,17 @@ end
 
 return {
 	{
-		"williamboman/mason.nvim",
+	"williamboman/mason.nvim",
 
-		config = function()
+	config = function()
 
-			require("mason").setup({
+	require("mason").setup({
 
-				registries = {
-					"github:nvim-java/mason-registry",
-					"github:mason-org/mason-registry",
-				},
-			})
+	registries = {
+	"github:nvim-java/mason-registry",
+	"github:mason-org/mason-registry",
+	},
+	})
       mason_install_missing()
 		end,
 	},

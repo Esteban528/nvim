@@ -40,7 +40,7 @@ return {
 			vim.keymap.set("n", "<leader>n", ":lua MiniFiles.open() <CR>")
 
 			require("mini.icons").setup()
-			require("mini.notify").setup()
+			-- require("mini.notify").setup()
 			require("mini.git").setup()
 			MiniIcons.mock_nvim_web_devicons()
 			require("mini.indentscope").setup({
@@ -85,5 +85,8 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"tpope/vim-sleuth",
 	},
 }
