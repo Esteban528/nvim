@@ -42,6 +42,7 @@ return {
 			require("mini.icons").setup()
 			-- require("mini.notify").setup()
 			require("mini.git").setup()
+			require("mini.comment").setup()
 			MiniIcons.mock_nvim_web_devicons()
 			require("mini.indentscope").setup({
 				draw = {
