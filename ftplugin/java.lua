@@ -11,64 +11,43 @@ local _, jdtls = pcall(require, "jdtls")
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 local javaDebug = home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.*.jar"
 
-
 local config = {
 	cmd = {
+
+		-- 💀
 		"java",
+
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
-		"-Dosgi.checkConfiguration=true",
-		"-Dosgi.sharedConfiguration.area=" .. config_path,
-		"-Dosgi.sharedConfiguration.area.readOnly=true",
-		"-Dosgi.configuration.cascaded=true",
 		"-Dlog.protocol=true",
 		"-Dlog.level=ALL",
-
 		"-Xmx1g",
 		"--add-modules=ALL-SYSTEM",
 		"--add-opens",
 		"java.base/java.util=ALL-UNNAMED",
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
-
 		"-javaagent:" .. lombok_path,
+
 		"-jar",
 		equinox_path,
+
 		"-configuration",
 		config_path,
 		"-data",
 		workspace_dir,
 	},
-	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml" }),
+
+	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
 
 	settings = {
-		java = {
-			signatureHelp = { enabled = true },
-			extendedClientCapabilities = extendedClientCapabilities,
-			maven = {
-				downloadSources = true,
-			},
-			referencesCodeLens = {
-				enabled = true,
-			},
-			references = {
-				includeDecompiledSources = true,
-			},
-			inlayHints = {
-				parameterNames = {
-					enabled = "none",
-				},
-			},
-			format = {
-				enabled = false,
-			},
-		},
+		java = {},
 	},
 
 	init_options = {
 		bundles = {
-			vim.fn.glob(javaDebug, 1)
+			vim.fn.glob(javaDebug, 1),
 		},
 	},
 }
