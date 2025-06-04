@@ -12,7 +12,23 @@ return {
 				auto_show_delay_ms = 200,
 			},
 		},
+    signature = { enabled = false },
+		fuzzy = {
+			implementation = "rust",
+			-- use_typo_resistance = false,
+			use_frecency = true,
+			use_proximity = true,
+			sorts = { "exact", "score", "sort_text" },
+		},
+		appearance = {
+			highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),
+			nerd_font_variant = "mono",
+			use_nvim_cmp_as_default = false,
+		},
 
+		snippets = {
+			preset = "mini_snippets",
+		},
 		keymap = {
 			preset = "none",
 
