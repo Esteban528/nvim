@@ -12,7 +12,7 @@ return {
 				auto_show_delay_ms = 200,
 			},
 		},
-    signature = { enabled = false },
+    signature = { enabled = true },
 		fuzzy = {
 			implementation = "rust",
 			-- use_typo_resistance = false,
@@ -23,12 +23,11 @@ return {
 		appearance = {
 			highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),
 			nerd_font_variant = "mono",
-			use_nvim_cmp_as_default = false,
 		},
 
-		snippets = {
-			preset = "mini_snippets",
-		},
+		-- snippets = {
+		-- 	preset = "mini_snippets",
+		-- },
 		keymap = {
 			preset = "none",
 
