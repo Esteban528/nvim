@@ -11,8 +11,26 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 200,
 			},
+
+			menu = {
+				enabled = true,
+				min_width = 35,
+				max_height = 10,
+				-- border = "rounded",
+				border = {
+					{ "┌", "WarningMsg" },
+					"─",
+					"┐",
+					"│",
+					"┘",
+					"─",
+					"└",
+					"│",
+				},
+			},
 		},
-    signature = { enabled = true },
+
+		signature = { enabled = true },
 		fuzzy = {
 			implementation = "rust",
 			-- use_typo_resistance = false,

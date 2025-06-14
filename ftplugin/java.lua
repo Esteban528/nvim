@@ -39,7 +39,7 @@ local config = {
 		workspace_dir,
 	},
 
-	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+	root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle", "settings.gradle" }),
 
 	settings = {
 		java = {},
