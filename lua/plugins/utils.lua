@@ -1,5 +1,35 @@
 return {
 	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("kanagawa").setup({
+				compile = false, -- enable compiling the colorscheme
+				undercurl = true, -- enable undercurls
+				commentStyle = { italic = true },
+				functionStyle = {},
+				keywordStyle = {},
+				statementStyle = { bold = true },
+				typeStyle = {},
+				transparent = false, -- do not set background color
+				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+				terminalColors = false, -- define vim.g.terminal_color_{0,17}
+				colors = { -- add/modify theme and palette colors
+					palette = {},
+					theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+				},
+				overrides = function(colors) -- add/modify highlights
+					return {}
+				end,
+				theme = "dragon", -- Load "wave" theme when 'background' option is not set
+				background = { -- map the value of 'background' option to a theme
+					dark = "dragon", -- try "dragon" !
+					light = "lotus",
+				},
+			})
+			vim.cmd("colorscheme kanagawa")
+		end,
+	},
+	{
 		"echasnovski/mini.nvim",
 		version = false,
 		config = function()
@@ -22,33 +52,6 @@ return {
 			})
 			require("mini.diff").setup()
 			vim.cmd("set signcolumn=number")
-			-- vim.opt.s
-
-			require("mini.base16").setup({
-				palette = {
-					base00 = "#1D1C19", -- dragon_black_2
-					base01 = "#12120F", -- dragon_black_1
-					base02 = "#282727", -- dragon_black_4
-					base03 = "#625E5A", -- dragon_black_6
-					base04 = "#737C73", -- dragon_ash
-					base05 = "#C5C9C5", -- dragon_white
-					base06 = "#C4B28A", -- dragon_yellow
-					base07 = "#7A8382", -- dragon_gray_3
-					base08 = "#C4746E", -- dragon_red
-					base09 = "#B98D7B", -- dragon_orange_2
-					base0A = "#C4B28A", -- dragon_yellow
-					base0B = "#87A987", -- dragon_green
-					base0C = "#8EA4A2", -- dragon_aqua
-					base0D = "#8BA4B0", -- dragon_blue_2
-					base0E = "#8992A7", -- dragon_violet
-					base0F = "#A292A3", -- dragon_pink
-				},
-				use_cterm = true,
-				plugins = {
-					default = true,
-					["echasnovski/mini.nvim"] = true,
-				},
-			})
 		end,
 	},
 	{
