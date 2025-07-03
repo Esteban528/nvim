@@ -20,3 +20,6 @@ require("lazy").setup("plugins")
 vim.g.NERDTreeWinSize = 42
 
 require("lsp")
+require("colors")
+require("miniconfig.picker")
+require("miniconfig.visits")
