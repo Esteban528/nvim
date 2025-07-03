@@ -9,5 +9,19 @@
       "}"
     ],
     "description": "Java class with automatic package and class name"
+  },
+
+  "logger-imports": {
+    "prefix": "loggerimp",
+    "body": ["import org.slf4j.Logger;", "import org.slf4j.LoggerFactory;"],
+    "description": "Imports for SLF4J Logger"
+  },
+
+  "logger": {
+    "prefix": "logger",
+    "body": [
+      "private static final Logger logger = LoggerFactory.getLogger(${TM_FILENAME_BASE}.class);"
+    ],
+    "description": "SLF4J logger instance"
   }
 }

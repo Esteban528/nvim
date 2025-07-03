@@ -70,20 +70,6 @@ return {
 		},
 	},
 	{
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			vim.cmd("set termguicolors")
-			require("colorizer").setup({
-				"css",
-				"javascript",
-				"yml",
-				html = {
-					mode = "foreground",
-				},
-			})
-		end,
-	},
-	{
 		-- "tpope/vim-sleuth",
 	},
 }
