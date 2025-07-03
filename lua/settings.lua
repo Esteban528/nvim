@@ -7,6 +7,7 @@ wo.number = true
 o.clipboard = "unnamedplus"
 o.relativenumber = true
 o.numberwidth = 4
+o.winborder = "single"
 
 o.splitright = true
 o.hidden = true
@@ -27,3 +28,4 @@ opt.undolevels = 10000
 vim.opt.wrap = false
 
 vim.cmd("autocmd FileType java setlocal et ts=4 sw=4 sts=4 <CR>")
+vim.cmd("set signcolumn=number")

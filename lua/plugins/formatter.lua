@@ -16,7 +16,7 @@ return {
 			end, { range = true })
 
 			-- Format
-			vim.keymap.set("n", "<leader>fc", ":Format<CR>", { desc = "Split Window Right", silent = true })
+			vim.keymap.set("n", "<leader>fc", ":Format<CR>", { desc = "Format code", silent = true })
 
 			require("conform").setup({
 				formatters_by_ft = {
