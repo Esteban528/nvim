@@ -51,4 +51,35 @@ local config = {
 		},
 	},
 }
+
+local function isGradleProject()
+  local gradleProjects = {
+    ["build.gradle"] = true,
+    ["gradle"] = true,
+    ["gradlew"] = true,
+    ["settings.gradle"] = true,
+  }
+  local dir = vim.fn.getcwd()
+  local fs = vim.loop.fs_scandir(dir)
+  local result = false;
+  while (true) do
+    local name = vim.loop.fs_scandir_next(fs)
+    if (not name) then break end
+    if (gradleProjects[name]) then
+      result = true
+      break
+    end
+  end
+  return result
+end
+
+-- print(vim.inspect(isGradleProject()))
+
+if (isGradleProject()) then
+  os.remove(vim.fn.getcwd().."/.classpath")
+  -- os.remove(vim.fn.getcwd().."/.settings")
+  os.remove(vim.fn.getcwd().."/.factorypath")
+  os.remove(vim.fn.getcwd().."/.project")
+end
+
 require("jdtls").start_or_attach(config)
