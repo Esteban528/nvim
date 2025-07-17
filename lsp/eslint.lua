@@ -1,4 +1,36 @@
-local util = require 'lspconfig.util'
+--- @brief
+---
+--- https://github.com/hrsh7th/vscode-langservers-extracted
+---
+--- `vscode-eslint-language-server` is a linting engine for JavaScript / Typescript.
+--- It can be installed via `npm`:
+---
+--- ```sh
+--- npm i -g vscode-langservers-extracted
+--- ```
+---
+--- The default `on_attach` config provides the `LspEslintFixAll` command that can be used to format a document on save:
+--- ```lua
+--- local base_on_attach = vim.lsp.config.eslint.on_attach
+--- vim.lsp.config("eslint", {
+---   on_attach = function(client, bufnr)
+---     if not base_on_attach then return end
+---
+---     base_on_attach(client, bufnr)
+---     vim.api.nvim_create_autocmd("BufWritePre", {
+---       buffer = bufnr,
+---       command = "LspEslintFixAll",
+---     })
+---   end,
+--- })
+--- ```
+---
+--- See [vscode-eslint](https://github.com/microsoft/vscode-eslint/blob/55871979d7af184bf09af491b6ea35ebd56822cf/server/src/eslintServer.ts#L216-L229) for configuration options.
+---
+--- Messages handled in lspconfig: `eslint/openDoc`, `eslint/confirmESLintExecution`, `eslint/probeFailed`, `eslint/noLibrary`
+---
+--- Additional messages you can handle: `eslint/noConfig`
+
 local lsp = vim.lsp
 
 return {
@@ -13,13 +45,12 @@ return {
     'vue',
     'svelte',
     'astro',
+    'htmlangular',
   },
-  on_attach = function(client)
+  workspace_required = true,
+  on_attach = function(client, bufnr)
     vim.api.nvim_buf_create_user_command(0, 'LspEslintFixAll', function()
-      local bufnr = vim.api.nvim_get_current_buf()
-
-      client:exec_cmd({
-        title = 'Fix all Eslint errors for current buffer',
+      client:request_sync('workspace/executeCommand', {
         command = 'eslint.applyAllFixes',
         arguments = {
           {
@@ -27,7 +58,7 @@ return {
             version = lsp.util.buf_versions[bufnr],
           },
         },
-      }, { bufnr = bufnr })
+      }, nil, bufnr)
     end, {})
   end,
   -- https://eslint.org/docs/user-guide/configuring/configuration-files#configuration-file-formats
@@ -48,9 +79,7 @@ return {
     }
 
     local fname = vim.api.nvim_buf_get_name(bufnr)
-    root_file_patterns = util.insert_package_json(root_file_patterns, 'eslintConfig', fname)
-    local root_dir = vim.fs.dirname(vim.fs.find(root_file_patterns, { path = fname, upward = true })[1])
-    on_dir(root_dir)
+    on_dir(vim.fs.dirname(vim.fs.find(root_file_patterns, { path = fname, upward = true })[1]))
   end,
   -- Refer to https://github.com/Microsoft/vscode-eslint#settings-options for documentation.
   settings = {

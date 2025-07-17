@@ -105,7 +105,7 @@ return {
 
 			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
-			["<Enter>"] = {
+			["<C-y>"] = {
 				function(cmp)
 					if cmp.snippet_active() then
 						return cmp.accept()

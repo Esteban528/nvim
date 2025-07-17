@@ -44,7 +44,7 @@ vim.lsp.config("*", {
 vim.lsp.enable("luals")
 --vim.lsp.enable("jdtls")
 vim.lsp.enable("ts_ls")
--- vim.lsp.enable("eslint")
+vim.lsp.enable("eslint")
 vim.lsp.enable("html_lsp")
 vim.lsp.enable("csslsp")
 vim.lsp.enable("emmetls")

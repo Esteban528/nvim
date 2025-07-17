@@ -16,6 +16,9 @@ MiniPick.setup({
 		toggle_preview = "<C-p>",
 		move_down = "<Tab>",
 		move_up = "<S-Tab>",
+    scroll_up = "<C-u>",
+    scroll_down = "<C-d>",
+    delete_left = "<Del>",
 	},
 	-- options = { content_from_bottom = true },
 })
