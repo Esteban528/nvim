@@ -66,6 +66,12 @@ local color = function()
 	hl(0, "BlinkCmpKindConstant", { fg = palette.base08 })
 	hl(0, "BlinkCmpKindMethod", { fg = palette.base0D })
 	hl(0, "BlinkCmpKindFunction", { fg = palette.base0D })
+	hl(0, "Type", { fg = palette.base09 })
+	hl(0, "@keyword", { fg = palette.base0F })
+	hl(0, "@keyword.modifier", { link = "@keyword" })
+	hl(0, "@lsp.type.keyword", { link = "@keyword" })
+	-- hl(0, "@lsp.type.modifier", { link = "@keyword" })
+	hl(0, "@type.qualifier", { link = "@keyword" })
 
 	vim.cmd([[
         hi! RedBG cterm=bold ctermfg=234 ctermbg=167 gui=bold guifg=#1d2021 guibg=#db4740 " #f2594b
@@ -91,6 +97,7 @@ local color = function()
         hi! link @punctuation.bracket comment
         hi! link @lsp.type.function @function
         hi! link @lsp.type.macro @function
+        hi! link @lsp.type.keyword @keyword
         hi! link @string.json String
         hi! link @string.jsonc String
         hi! link @variable.nix yellow
