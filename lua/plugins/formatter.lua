@@ -41,6 +41,8 @@ return {
 					flow = { "prettierd", "prettier", stop_after_first = true },
 					angular = { "prettierd", "prettier", stop_after_first = true },
 					xml = { "xmlformatter" },
+					c = { "clang-format" },
+					h = { "clang-format" },
 
 					-- Java
 					java = { "sg" },

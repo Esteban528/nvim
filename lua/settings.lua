@@ -1,8 +1,7 @@
 local o = vim.o
 local wo = vim.wo
-local opt = vim.opt
 
-vim.opt.encoding = "utf-8"
+o.encoding = "utf-8"
 wo.number = true
 o.clipboard = "unnamedplus"
 o.relativenumber = true
@@ -15,13 +14,13 @@ o.lazyredraw = true
 
 -- Indenting
 o.expandtab = true
-o.shiftwidth = 2
 o.smartindent = true
+o.shiftwidth = 2
 o.tabstop = 2
 o.softtabstop = 2
 
-opt.undofile = true
-opt.undolevels = 10000
+o.undofile = true
+o.undolevels = 10000
 
 -- opt.updatetime = 200
 

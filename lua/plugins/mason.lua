@@ -14,6 +14,7 @@ local mason_tools = {
   "prettierd",
   "stylua",
   "typescript-language-server",
+  "ast-grep",
 }
 
 local function mason_install_missing()
