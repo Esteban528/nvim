@@ -6,3 +6,10 @@ end
 require("mini.snippets").setup({
 	expand = { insert = my_i },
 })
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniSnippetsSessionJump",
+    callback = function(buf)
+        if buf.data.tabstop_to == "0" then MiniSnippets.session.stop() end
+    end,
+})
