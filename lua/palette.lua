@@ -1,22 +1,23 @@
 local M = {}
 
 M.palette = { -- My Color palette
-  base00= "#171613",
-  base01= "#0D0D0B",
-  base02= "#423F3F",
-  base03= "#4C4A48",
-  base04= "#737C73",
-  base05= "#cdc8b1",
-  base06= "#483C26",
-  base07= "#7A8382",
-  base08= "#EC5F67",
-  base09= "#EA9560",
-  base0A= "#E2C86D",
-  base0B= "#85bf7a",
-  base0C= "#8dbab6",
-  base0D= "#7aa6bb",
-  base0E= "#8992A7",
-  base0F= "#A292A3",
+  base00 = "#100f0f", -- bg
+  base01 = "#1c1b1a", -- bg-2
+  base02 = "#282726", -- ui
+  base03 = "#343331", -- ui-2
+  base04 = "#403e3c", -- ui-3
+  base06 = "#878580", -- tx-2
+  base05 = "#cecdc3", -- tx
+  base07 = "#575653", -- tx-3
+
+  base08 = "#d14d41", -- red
+  base09 = "#da702c", -- orange
+  base0A = "#d0a215", -- yellow
+  base0B = "#879a39", -- green
+  base0C = "#3aa99f", -- cyan
+  base0D = "#4385be", -- blue
+  base0E = "#8b7ec8", -- purple
+  base0F = "#ce5d97", -- magenta
 }
 
 return M
