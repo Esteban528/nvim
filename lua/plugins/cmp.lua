@@ -90,7 +90,7 @@ return {
 			sorts = { "exact", "score", "sort_text" },
 		},
 		snippets = {
-			preset = "mini_snippets",
+			--preset = "mini_snippets",
 		},
 		appearance = {
 			highlight_ns = vim.api.nvim_create_namespace("blink_cmp"),

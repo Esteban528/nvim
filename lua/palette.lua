@@ -17,8 +17,6 @@ M.palette = { -- My Color palette
 	base0D = "#c4a7e7",
 	base0E = "#f6c177",
 	base0F = "#C4A7E7",
-
-
 }
 
 return M

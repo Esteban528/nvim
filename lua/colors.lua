@@ -72,7 +72,7 @@ local color = function()
 	hl(0, "@lsp.type.keyword", { link = "@keyword" })
 	-- hl(0, "@lsp.type.modifier", { link = "@keyword" })
 	hl(0, "@type.qualifier", { link = "@keyword" })
-  hl(0, "MiniSnippetsCurrent", { link = "Normal" })
+  hl(0, "MiniSnippetsCurrent", { fg = palette.base00 })
 
 	vim.cmd([[
         hi! RedBG cterm=bold ctermfg=234 ctermbg=167 gui=bold guifg=#1d2021 guibg=#db4740 " #f2594b
