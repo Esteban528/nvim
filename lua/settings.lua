@@ -6,7 +6,7 @@ wo.number = true
 o.clipboard = "unnamedplus"
 o.relativenumber = true
 o.numberwidth = 4
---o.winborder = "single"
+o.winborder = "single"
 
 o.splitright = true
 o.hidden = true
