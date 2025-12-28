@@ -82,13 +82,12 @@ return {
 		},
 
 		signature = { enabled = true },
-		fuzzy = {
-			implementation = "rust",
-			-- use_typo_resistance = false,
-			use_frecency = true,
-			use_proximity = true,
-			sorts = { "exact", "score", "sort_text" },
-		},
+		-- fuzzy = {
+		-- 	implementation = "rust",
+		-- 	-- use_typo_resistance = false,
+		-- 	use_proximity = true,
+		-- 	sorts = { "exact", "score", "sort_text" },
+		-- },
 		snippets = {
 			--preset = "mini_snippets",
 		},

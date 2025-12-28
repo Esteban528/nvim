@@ -17,7 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- require('mods')
-vim.g.NERDTreeWinSize = 42
 
 require("lsp")
 require("colors")
