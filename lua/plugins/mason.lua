@@ -15,6 +15,7 @@ local mason_tools = {
   "stylua",
   "typescript-language-server",
   "ast-grep",
+  "json-lsp",
 }
 
 local function mason_install_missing()

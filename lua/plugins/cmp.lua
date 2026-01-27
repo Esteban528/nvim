@@ -17,8 +17,43 @@ end
 
 return {
 	"saghen/blink.cmp",
+	dependencies = {
+		{
+			"supermaven-inc/supermaven-nvim",
+			config = function()
+				local suggestion = require("supermaven-nvim").setup({
+					disable_inline_completion = true,
+					disable_keymaps = true,
+				})
+
+				vim.keymap.set("i", "<C-l>", function()
+					local suggestion = require("supermaven-nvim.completion_preview")
+
+					if suggestion.has_suggestion() then
+						suggestion.on_accept_suggestion()
+					end
+				end, { silent = true })
+
+				local api = require("supermaven-nvim.api")
+				vim.keymap.set("n", "<leader>e", api.toggle, { desc = "Toggle ai"})
+			end,
+		},
+		{
+			"huijiro/blink-cmp-supermaven",
+		},
+	},
 	version = "*",
 	opts = {
+		sources = {
+			default = { "lsp", "path", "snippets", "buffer", "supermaven" },
+			providers = {
+				supermaven = {
+					name = "supermaven",
+					module = "blink-cmp-supermaven",
+					async = true,
+				},
+			},
+		},
 		completion = {
 			documentation = {
 				auto_show = true,
@@ -28,6 +63,24 @@ return {
 			menu = {
 				draw = {
 					components = {
+						kind_icon = {
+							text = function(ctx)
+								local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+								return kind_icon
+							end,
+							-- (optional) use highlights from mini.icons
+							highlight = function(ctx)
+								local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+								return hl
+							end,
+						},
+						kind = {
+							-- (optional) use highlights from mini.icons
+							highlight = function(ctx)
+								local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+								return hl
+							end,
+						},
 						label = {
 							width = { fill = true, max = 60 },
 							text = function(ctx)
