@@ -18,34 +18,34 @@ end
 return {
 	"saghen/blink.cmp",
 	dependencies = {
-		{
-			"supermaven-inc/supermaven-nvim",
-			config = function()
-				local suggestion = require("supermaven-nvim").setup({
-					disable_inline_completion = true,
-					disable_keymaps = true,
-				})
-
-				vim.keymap.set("i", "<C-l>", function()
-					local suggestion = require("supermaven-nvim.completion_preview")
-
-					if suggestion.has_suggestion() then
-						suggestion.on_accept_suggestion()
-					end
-				end, { silent = true })
-
-				local api = require("supermaven-nvim.api")
-				vim.keymap.set("n", "<leader>e", api.toggle, { desc = "Toggle ai"})
-			end,
-		},
-		{
-			"huijiro/blink-cmp-supermaven",
-		},
+		-- {
+		-- 	"supermaven-inc/supermaven-nvim",
+		-- 	config = function()
+		-- 		local suggestion = require("supermaven-nvim").setup({
+		-- 			disable_inline_completion = true,
+		-- 			disable_keymaps = true,
+		-- 		})
+		--
+		-- 		vim.keymap.set("i", "<C-l>", function()
+		-- 			local suggestion = require("supermaven-nvim.completion_preview")
+		--
+		-- 			if suggestion.has_suggestion() then
+		-- 				suggestion.on_accept_suggestion()
+		-- 			end
+		-- 		end, { silent = true })
+		--
+		-- 		local api = require("supermaven-nvim.api")
+		-- 		vim.keymap.set("n", "<leader>e", api.toggle, { desc = "Toggle ai"})
+		-- 	end,
+		-- },
+		-- {
+		-- 	"huijiro/blink-cmp-supermaven",
+		-- },
 	},
 	version = "*",
 	opts = {
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "supermaven" },
+			default = { "lsp", "path", "snippets", "buffer"  },
 			providers = {
 				supermaven = {
 					name = "supermaven",
