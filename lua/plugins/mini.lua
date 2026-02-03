@@ -19,6 +19,7 @@ return{
 					-- Delay (in ms) between event and start of drawing scope indicator
 					delay = 0,
 				},
+      symbol = '│',
 			})
 			require("mini.diff").setup()
 			require("mini.extra").setup()
@@ -82,13 +83,13 @@ return{
 			})
 			-- vim.opt.s
 
-			require("mini.base16").setup({
-				palette = require("palette").palette,
-				use_cterm = true,
-				plugins = {
-					default = true,
-					["echasnovski/mini.nvim"] = true,
-				},
-			})
+			-- require("mini.base16").setup({
+			-- 	palette = require("palette").palette,
+			-- 	use_cterm = true,
+			-- 	plugins = {
+			-- 		default = true,
+			-- 		["echasnovski/mini.nvim"] = true,
+			-- 	},
+			-- })
 		end,
 	}

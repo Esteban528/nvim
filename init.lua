@@ -19,6 +19,5 @@ require("lazy").setup("plugins")
 -- require('mods')
 
 require("lsp")
-require("colors")
 require("miniconfig.picker")
 require("miniconfig.visits")
