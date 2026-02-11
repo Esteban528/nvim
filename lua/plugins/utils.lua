@@ -28,8 +28,38 @@ return {
 		-- Optional; default configuration will be used if setup isn't called.
 		config = function()
 			require("everforest").setup({
-	       vim.cmd([[colorscheme everforest]])
+				vim.cmd([[colorscheme everforest]]),
 			})
 		end,
-  }
+	},
+	{
+		"https://gitlab.com/Alucherdi/hand-of-god",
+		config = function()
+			local jumper = require("handofgod.jumper")
+			jumper.setup()
+
+			-- add file to jumper list
+			vim.keymap.set("n", "<leader>a", function()
+				jumper.add()
+			end)
+			-- explore jumper list as buffer
+			vim.keymap.set("n", "<leader>e", function()
+				jumper:explore()
+			end)
+
+			-- jump bindings
+			vim.keymap.set("n", "<A-h>", function()
+				jumper.jump_to(1)
+			end)
+			vim.keymap.set("n", "<A-j>", function()
+				jumper.jump_to(2)
+			end)
+			vim.keymap.set("n", "<A-k>", function()
+				jumper.jump_to(3)
+			end)
+			vim.keymap.set("n", "<A-l>", function()
+				jumper.jump_to(4)
+			end)
+		end,
+	},
 }

@@ -20,4 +20,3 @@ require("lazy").setup("plugins")
 
 require("lsp")
 require("miniconfig.picker")
-require("miniconfig.visits")

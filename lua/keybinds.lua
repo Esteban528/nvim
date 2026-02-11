@@ -122,3 +122,14 @@ map("n", "<leader>dr", ":lua require'dap'.repl.open()<CR>", { noremap = true, si
 -- Indent
 map("v", "<", "<gv")
 map("v", ">", ">gv")
+
+-- -- Marks
+-- map("n", "<a-h>", "'H<CR>")
+-- map("n", "<a-j>", "'J<CR>")
+-- map("n", "<a-k>", "'K<CR>")
+-- map("n", "<a-l>", "'L<CR>")
+--
+-- map("n", "<leader>h", "mH<CR>")
+-- map("n", "<leader>j", "mJ<CR>")
+-- map("n", "<leader>k", "mK<CR>")
+-- map("n", "<leader>l", "mL<CR>")

@@ -23,11 +23,11 @@ return{
 			})
 			require("mini.diff").setup()
 			require("mini.extra").setup()
-			require("mini.visits").setup({
-				config = {
-					store = { autowrite = true },
-				},
-			})
+			-- require("mini.visits").setup({
+			-- 	config = {
+			-- 		store = { autowrite = true },
+			-- 	},
+			-- })
 
 			local miniclue = require("mini.clue")
 			miniclue.setup({

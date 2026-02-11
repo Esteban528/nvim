@@ -32,7 +32,7 @@ local function mason_install_missing()
     vim.cmd("MasonInstall " .. table.concat(missing_tools, " "))
     print("Installing mason tools: " .. table.concat(missing_tools, ", "))
   else
-    print("Mason tools are installed ✅")
+    print("Mason tools are installed")
   end
 end
 
