@@ -5,7 +5,7 @@ o.encoding = "utf-8"
 wo.number = true
 o.clipboard = "unnamedplus"
 o.relativenumber = true
-o.numberwidth = 4
+o.numberwidth = 2
 -- o.winborder = "single"
 
 o.splitright = true

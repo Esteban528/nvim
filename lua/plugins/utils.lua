@@ -18,18 +18,16 @@ return {
 		},
 	},
 	{
-		-- "tpope/vim-sleuth",
+		"tpope/vim-sleuth",
 	},
 	{
-		"neanias/everforest-nvim",
-		version = false,
+		"HoNamDuong/hybrid.nvim",
 		lazy = false,
-		priority = 1000, -- make sure to load this before all the other start plugins
-		-- Optional; default configuration will be used if setup isn't called.
+		priority = 1000,
 		config = function()
-			require("everforest").setup({
-				vim.cmd([[colorscheme everforest]]),
-			})
+			-- Lua
+			-- vim.opt.background = "bamboo" -- set this to dark or light
+			vim.cmd.colorscheme "hybrid"
 		end,
 	},
 	{
