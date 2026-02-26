@@ -31,7 +31,7 @@ local function mapSymbols(status, is_symlink)
     ["UU"] = { symbol = "⇄", hlGroup  = "MiniDiffSignAdd"   }, -- file is unmerged
     ["UA"] = { symbol = "⊕", hlGroup  = "MiniDiffSignAdd"   }, -- file is unmerged and added in working tree
     ["??"] = { symbol = "?", hlGroup  = "MiniDiffSignDelete"}, -- Untracked files
-    ["!!"] = { symbol = "!", hlGroup  = "MiniDiffSignChange"}, -- Ignored files
+    ["!!"] = { symbol = "", hlGroup  = "MiniDiffSignChange"}, -- Ignored files
     -- stylua: ignore end
   }
 
