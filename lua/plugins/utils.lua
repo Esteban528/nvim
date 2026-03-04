@@ -21,15 +21,22 @@ return {
 		"tpope/vim-sleuth",
 	},
 	{
-		"HoNamDuong/hybrid.nvim",
-		lazy = false,
+		"folke/tokyonight.nvim",
 		priority = 1000,
 		config = function()
-			-- Lua
-			-- vim.opt.background = "bamboo" -- set this to dark or light
-			vim.cmd.colorscheme "hybrid"
+			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
+	-- {
+	-- 	"HoNamDuong/hybrid.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		-- Lua
+	-- 		-- vim.opt.background = "bamboo" -- set this to dark or light
+	-- 		vim.cmd.colorscheme "hybrid"
+	-- 	end,
+	-- },
 	{
 		"https://gitlab.com/Alucherdi/hand-of-god",
 		config = function()
