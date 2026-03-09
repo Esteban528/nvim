@@ -62,6 +62,8 @@ return {
 				includeCompletionsForModuleExports = true,
 				includeCompletionsWithSnippetText = true,
 				includeCompletionsWithInsertText = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
 			},
 			preferences = {
 				-- Mejores imports
@@ -82,6 +84,9 @@ return {
 				includeCompletionsForModuleExports = true,
 				includeCompletionsWithSnippetText = true,
 				includeCompletionsWithInsertText = true,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayVariableTypeHints = true,
 			},
 			preferences = {
 				includePackageJsonAutoImports = "on",

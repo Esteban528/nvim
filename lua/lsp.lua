@@ -32,6 +32,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("[e", diagnostic_goto(false, "ERROR"), "Prev Error")
 		map("]w", diagnostic_goto(true, "WARN"), "Next Warning")
 		map("[w", diagnostic_goto(false, "WARN"), "Prev Warning")
+
+		vim.lsp.inlay_hint.enable(true, { bufnr = buf })
 	end,
 })
 
